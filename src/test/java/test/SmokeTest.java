@@ -1,4 +1,4 @@
-package tests;
+package test;
 
 import baseEntities.BaseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -15,8 +15,8 @@ public class SmokeTest extends BaseTest {
     @Test
     public void positiveLoginTest() {
         LoginPage loginPage = new LoginPage(driver, true);
-        loginPage.setUsername("standard_user");
-        loginPage.setPassword("secret_sauce");
+        loginPage.setUsername(properties.getUsername());
+        loginPage.setPassword(properties.getPassword());
         loginPage.clickLoginButton();
 
         ProductsPage productsPage = new ProductsPage(driver, false);
