@@ -10,7 +10,7 @@ public class CartPage {
 
     private final static By back_Button_By = By.id("continue-shopping");
     private final static By further_Button_By = By.id("checkout");
-    private final static By title_Label_Cart_By = By.linkText("Your Cart");
+    private final static By title_Label_Cart_By = By.linkText("DESCRIPTION");
 
     public CartPage(WebDriver driver) {
         this.driver = driver;

@@ -15,6 +15,7 @@ public class ProductsPage {
     private final static By product_Button5_By = By.id("add-to-cart-sauce-labs-onesie");
     private final static By product_Button6_By = By.id("add-to-cart-test.allthethings()-t-shirt-(red)");
     private final static By basket_Button_By = By.className("shopping_cart_link");
+    private final static By basket_Button_Add_By = By.className("shopping_cart_link");
 
 
     public ProductsPage(WebDriver driver) {
@@ -31,5 +32,6 @@ public class ProductsPage {
     public WebElement getProductButton5() { return driver.findElement(product_Button5_By); }
     public WebElement getProductButton6() { return driver.findElement(product_Button6_By); }
     public WebElement getBasketButton() { return driver.findElement(basket_Button_By); }
+    public WebElement getBasketButtonAdd() { return driver.findElement(basket_Button_Add_By); }
 
 }
