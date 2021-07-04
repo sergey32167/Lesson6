@@ -3,10 +3,11 @@ package test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CartPage;
+import pages.BasketPage;
 import pages.LoginPage;
 import pages.ProductsPage;
 
@@ -107,10 +108,15 @@ public class SmokeTest {
 
         Assert.assertEquals(productsPage.getTitleText(), "PRODUCTS", "Страница Products не открылась.");
 
-        ProductsPage productPage = new ProductsPage(driver);
-        productPage.getProductButton1().click();
-        productPage.getBasketButtonAdd();
 
+        productsPage.getProductButtonByName("Sauce Labs Bike Light").click();
+        Assert.assertEquals(productsPage.getBasketLabel().getText(), "1");
+
+        productsPage.getBasketButton().click();
+
+        BasketPage basketPage = new BasketPage(driver);
+        WebElement addedItem = (basketPage.getAddedItemByName("Sauce Labs Bike Light"));
+        Assert.assertEquals(addedItem.isDisplayed(), true);
         driver.quit();
     }
 
@@ -129,10 +135,10 @@ public class SmokeTest {
         Assert.assertEquals(productsPage.getTitleText(), "PRODUCTS", "Страница Products не открылась.");
 
 
-        productsPage.getProductButton1().click();
+//        productsPage.getProductButton1().click();
         productsPage.getBasketButton().click();
 
-        CartPage cartsPage =new CartPage(driver);
+        BasketPage cartsPage =new BasketPage(driver);
         Assert.assertEquals(cartsPage.getTitleTextCheck(), "DESCRIPTION", "Страница не открылась.");
 
 
