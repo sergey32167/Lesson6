@@ -10,7 +10,7 @@ public class OverviewPage {
 
     private final static By cancel2_Button_By = By.id("cancel");
     private final static By finish_Button_By = By.id("finish");
-    private final static By title_Label_Over_By = By.linkText("Checkout: Overview");
+    private final static By title_Label_Over_By = By.linkText("QTY");
 
     public OverviewPage(WebDriver driver) {
         this.driver = driver;

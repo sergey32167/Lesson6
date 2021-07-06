@@ -7,9 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.BasketPage;
-import pages.LoginPage;
-import pages.ProductsPage;
+import pages.*;
 
 public class SmokeTest {
 
@@ -131,15 +129,43 @@ public class SmokeTest {
         loginPage.clickLoginButton();
 
         ProductsPage productsPage = new ProductsPage(driver);
-
         Assert.assertEquals(productsPage.getTitleText(), "PRODUCTS", "Страница Products не открылась.");
-
-
-//        productsPage.getProductButton1().click();
+        productsPage.getProductButtonByName("Sauce Labs Bike Light").click();
         productsPage.getBasketButton().click();
 
-        BasketPage cartsPage =new BasketPage(driver);
-        Assert.assertEquals(cartsPage.getTitleTextCheck(), "DESCRIPTION", "Страница не открылась.");
+        BasketPage basketPage = new BasketPage(driver);
+        basketPage.getRemoveButton().click();
+
+        basketPage.verifiedItemIsRemoved("Sauce Labs Bike Light");
+
+        driver.quit();
+    }
+    @Test
+    public void BuyProductTest() {
+        WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
+        WebDriver driver = new ChromeDriver();
+
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.setUsername("standard_user");
+        loginPage.setPassword("secret_sauce");
+        loginPage.clickLoginButton();
+
+        ProductsPage productsPage = new ProductsPage(driver);
+        Assert.assertEquals(productsPage.getTitleText(), "PRODUCTS", "Страница Products не открылась.");
+        productsPage.getProductButtonByName("Sauce Labs Bike Light").click();
+        productsPage.getBasketButton().click();
+
+        BasketPage basketPage = new BasketPage(driver);
+        basketPage.getFurtherButton().click();
+
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        checkoutPage.getFirstnameInput().sendKeys("sergey");
+        checkoutPage.getLastnameInput().sendKeys("kastsiukevich");
+        checkoutPage.getZipInput().sendKeys("220000");
+        checkoutPage.getContinueButton().click();
+
+        OverviewPage overviewPage = new OverviewPage(driver);
+        overviewPage.getFinishButton().click();
 
 
 

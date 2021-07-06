@@ -11,7 +11,7 @@ public class ProductsPage {
     private final static String product_Button_ByName = "//div[@class='inventory_item_description' and descendant::div[text()='%s']]//button";
 
     private final static By basket_Button_By = By.className("shopping_cart_link");
-    private final static By basket_Label_By = By.className("shopping_cart_link");
+    private final static By basket_Label_By = By.className("shopping_cart_badge");
 
 
     public ProductsPage(WebDriver driver) {

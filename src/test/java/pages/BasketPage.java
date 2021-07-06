@@ -17,6 +17,7 @@ public class BasketPage {
     private final static By title_Label_Cart_By = By.linkText("DESCRIPTION");
     private final static String itemByName = "//div[@class='inventory_item_name' and text()='%s']";
     private final static By itemByNameCss = By.className("inventory_item_name");
+    private final static By remove_Button_By = By.id("remove-sauce-labs-backpack");
 
 
     public BasketPage(WebDriver driver) {
@@ -27,12 +28,12 @@ public class BasketPage {
     public WebElement getFurtherButton(){ return driver.findElement(further_Button_By);}
     public WebElement getTitleLabelCart() { return driver.findElement(title_Label_Cart_By); }
     public String getTitleTextCheck() { return getTitleLabelCart().getText(); }
+    public WebElement getRemoveButton(){ return driver.findElement(remove_Button_By);}
 
     public WebElement getAddedItemByName(String itemName){
         String fullXpathItemByName = String.format(itemByName,itemName);
         WebElement webElement = driver.findElement(By.xpath(fullXpathItemByName));
        return webElement;
-
     }
 
     public void verifiedItemIsRemoved(String itemName){
