@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<imployee>
+    <firstname age = "38">Иван</firstname>
+    <lastname>Иванов</lastname>
+    <age>38</age>
+</imployee>
