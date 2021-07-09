@@ -18,20 +18,8 @@ public class SmokeTest extends BaseTest {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getUsername(), properties.getPassword());
 
-
         ProductsPage productsPage = new ProductsPage(driver, false);
-
         Assert.assertEquals(productsPage.getTitleText(), "PRODUCTS", "Страница Products не открылась.");
     }
 
-    @Test
-    public void negativeLoginTest() {
-        LoginStep loginStep = new LoginStep(driver);
-        loginStep.login("asdasds", "adsasd");
-
-
-
-        Assert.assertEquals(new LoginPage(driver, false).getErrorLabel().getText(),
-                "Epic sadface: Username and password do not match any user in this service");
-    }
 }

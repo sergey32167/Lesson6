@@ -1,0 +1,49 @@
+[{"id": 28,
+"name": "Sergey_New_Progect",
+"announcement": null,
+"show_announcement": false,
+"is_completed": false,
+"completed_on": null,
+"suite_mode": 1,
+"url": "https://aqa06onl01.testrail.io/index.php?/projects/overview/28"
+},
+{
+"id": 29,
+"name": "Sergey_Add",
+"announcement": "Attention, attention",
+"show_announcement": true,
+"is_completed": true,
+"completed_on": 1625754210,
+"suite_mode": 3,
+"url": "https://aqa06onl01.testrail.io/index.php?/projects/overview/29"
+},
+{
+"id": 30,
+"name": "Sergey_Add_For_Delete",
+"announcement": "Attention, attention",
+"show_announcement": true,
+"is_completed": false,
+"completed_on": null,
+"suite_mode": 3,
+"url": "https://aqa06onl01.testrail.io/index.php?/projects/overview/30"
+},
+{
+"id": 165,
+"name": "Sergey_AAA",
+"announcement": "Attention, attention",
+"show_announcement": true,
+"is_completed": false,
+"completed_on": null,
+"suite_mode": 3,
+"url": "https://aqa06onl01.testrail.io/index.php?/projects/overview/165"
+},
+{
+"id": 165,
+"name": "Sergey_AAA",
+"announcement": "Attention, attention",
+"show_announcement": true,
+"is_completed": true,
+"completed_on": 1625850110,
+"suite_mode": 3,
+"url": "https://aqa06onl01.testrail.io/index.php?/projects/overview/165"
+}]

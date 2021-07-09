@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <row>
+        <id>21</id>
+        <name>Sergey_milestones</name>
+        <description>My new milestone</description>
+        <start_on />
+        <started_on>1625825941</started_on>
+        <is_started>true</is_started>
+        <due_on />
+        <is_completed>true</is_completed>
+        <completed_on>1625841847</completed_on>
+        <project_id>28</project_id>
+        <parent_id />
+        <refs />
+        <url>https://aqa06onl01.testrail.io/index.php?/milestones/view/21</url>
+    </row>
+    <row>
+        <id>25</id>
+        <name>Test_first</name>
+        <description>Hello</description>
+        <start_on />
+        <started_on>1625842455</started_on>
+        <is_started>true</is_started>
+        <due_on />
+        <is_completed>false</is_completed>
+        <completed_on />
+        <project_id>28</project_id>
+        <parent_id />
+        <refs />
+        <url>https://aqa06onl01.testrail.io/index.php?/milestones/view/25</url>
+    </row>
+    <row>
+        <id>27</id>
+        <name>Test_111111</name>
+        <description />
+        <start_on />
+        <started_on>1625843214</started_on>
+        <is_started>true</is_started>
+        <due_on />
+        <is_completed>false</is_completed>
+        <completed_on />
+        <project_id>28</project_id>
+        <parent_id />
+        <refs />
+        <url>https://aqa06onl01.testrail.io/index.php?/milestones/view/27</url>
+    </row>
+    <row>
+        <id>29</id>
+        <name>Sergey 2.0</name>
+        <description />
+        <start_on />
+        <started_on>1625850223</started_on>
+        <is_started>true</is_started>
+        <due_on>1394596385</due_on>
+        <is_completed>false</is_completed>
+        <completed_on />
+        <project_id>26</project_id>
+        <parent_id />
+        <refs />
+        <url>https://aqa06onl01.testrail.io/index.php?/milestones/view/29</url>
+    </row>
+    <row>
+        <id>29</id>
+        <name>Sergey 2.0</name>
+        <description />
+        <start_on />
+        <started_on>1625850223</started_on>
+        <is_started>true</is_started>
+        <due_on>1394596385</due_on>
+        <is_completed>true</is_completed>
+        <completed_on>1625850253</completed_on>
+        <project_id>26</project_id>
+        <parent_id />
+        <refs />
+        <url>https://aqa06onl01.testrail.io/index.php?/milestones/view/29</url>
+    </row>
+</root>
