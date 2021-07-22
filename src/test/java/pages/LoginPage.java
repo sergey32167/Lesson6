@@ -29,7 +29,7 @@ public class LoginPage {
     public WebElement getPasswordInput() { return driver.findElement(password_Input_By); }
     public WebElement getLoginButton() { return driver.findElement(login_Button_By); }
     public WebElement getErrorLabel() { return driver.findElement(error_Label__By); }
-
+    public String getErrorText() { return getErrorLabel().getText(); }
 
     // Атомартные методы по работе с элементами
     public void setUsername(String text) {

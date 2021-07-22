@@ -2,15 +2,26 @@ package test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
+import io.qameta.allure.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 import pages.*;
+import step.LoginStep;
+import utils.Retry;
+
 
 public class SmokeTest {
+    public WebDriver driver;
+    private int attempt = 1;
 
+    @Feature("Вход")
+    @Stories(value = {@Story("ВВод логина"), @Story("Нажатие на кнопку")})
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Тест входа с первыми значениями")
     @Test
     public void positiveLoginTest1() {
         WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
@@ -25,26 +36,22 @@ public class SmokeTest {
 
         Assert.assertEquals(productsPage.getTitleText(), "PRODUCTS", "Страница Products не открылась.");
 
+//        Assert.assertTrue(false);
+
         driver.quit();
     }
 
-    @Test
-    public void positiveLoginTest2() {
+    @Test(description = "Тест входа со вторыми значениями")
+    public void positiveLoginTest2(@Optional("locked_out_user") String login, @Optional("secret_sauce") String psw) {
         WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
         WebDriver driver = new ChromeDriver();
 
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.setUsername("problem_user");
-        loginPage.setPassword("secret_sauce");
-        loginPage.clickLoginButton();
-
-        ProductsPage productsPage = new ProductsPage(driver);
-
-        Assert.assertEquals(productsPage.getTitleText(), "PRODUCTS", "Страница Products не открылась.");
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login(login,psw);
 
         driver.quit();
     }
-
+    @TmsLink("4")
     @Test
     public void positiveLoginTest3() {
         WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
@@ -62,7 +69,9 @@ public class SmokeTest {
         driver.quit();
     }
 
-    @Test
+    @Flaky
+    @Link(name = "allure", type = "milink")
+    @Test(retryAnalyzer = Retry.class)
     public void positiveLoginTest4() {
         WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
         WebDriver driver = new ChromeDriver();
@@ -74,9 +83,14 @@ public class SmokeTest {
 
         Assert.assertEquals(loginPage.getErrorLabel().getText(), "Epic sadface: Sorry, this user has been locked out." );
 
+        if (attempt<3){
+            attempt++;
+            throw new NullPointerException();
+        }
         driver.quit();
     }
 
+    @Link(value = "Hello", url = "https://www.onliner.by/")
     @Test
     public void negativeLoginTest() {
         WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
@@ -92,6 +106,7 @@ public class SmokeTest {
         driver.quit();
     }
 
+    @Severity(SeverityLevel.MINOR)
     @Test
     public void addProductTest() {
         WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
@@ -135,8 +150,8 @@ public class SmokeTest {
 
         BasketPage basketPage = new BasketPage(driver);
         basketPage.getRemoveButton().click();
-
         basketPage.verifiedItemIsRemoved("Sauce Labs Bike Light");
+
 
         driver.quit();
     }

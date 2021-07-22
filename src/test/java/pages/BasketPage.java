@@ -17,7 +17,7 @@ public class BasketPage {
     private final static By title_Label_Cart_By = By.linkText("DESCRIPTION");
     private final static String itemByName = "//div[@class='inventory_item_name' and text()='%s']";
     private final static By itemByNameCss = By.className("inventory_item_name");
-    private final static By remove_Button_By = By.id("remove-sauce-labs-backpack");
+    private final static By remove_Button_By = By.xpath("//button[text () = 'Remove']");
 
 
     public BasketPage(WebDriver driver) {
