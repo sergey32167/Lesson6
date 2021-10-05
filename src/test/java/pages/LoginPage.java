@@ -11,8 +11,10 @@ public class LoginPage {
     private final static By username_Input_By = By.id("user-name");
     private final static By password_Input_By = By.id("password");
     private final static By login_Button_By = By.id("login-button");
+    private final static By error_Label__By = By.tagName("h3");
 
     // Конструктор
+
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         openPage();
@@ -26,6 +28,8 @@ public class LoginPage {
     public WebElement getUsernameInput() { return driver.findElement(username_Input_By); }
     public WebElement getPasswordInput() { return driver.findElement(password_Input_By); }
     public WebElement getLoginButton() { return driver.findElement(login_Button_By); }
+    public WebElement getErrorLabel() { return driver.findElement(error_Label__By); }
+    public String getErrorText() { return getErrorLabel().getText(); }
 
     // Атомартные методы по работе с элементами
     public void setUsername(String text) {
